@@ -1,0 +1,46 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<div class="text-center">
+    <table style="border:double">
+        <tr>
+            <th>Employee Name</th>
+            <th>Total Worked hours</th>
+        </tr>
+        @foreach (var emp in ViewBag.employees)
+        {
+            @if (@emp.TotalTimeWorked < 100)
+            {
+                <tr style="color:red">
+                    <td>@emp.Name</td>
+                    <td>@emp.TotalTimeWorked</td>
+
+                </tr>
+            }
+            else
+            {
+
+                <tr>
+                    <td>@emp.Name</td>
+                    <td>@emp.TotalTimeWorked</td>
+
+                </tr>
+                
+            }
+
+
+
+        }
+
+        
+    </table>
+    @* @{
+            var myChart = new Chart (width: 600, height: 400)
+            .AddTitle("Chart Title")
+            .AddSeries(
+            name: "Employee",
+            xValue: ViewBag.employees.Name,
+            yValues: ViewBag.employees.TotalTimeWorked
+            .Write();
+        } *@
+</div>
